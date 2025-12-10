@@ -1,0 +1,18 @@
+{
+    "name": "divi-five-child",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev:js": "vite --config vite.config.js",
+        "dev:scss": "sass --watch src/scss/style.scss:style.css",
+        "dev": "npm-run-all --parallel dev:js dev:scss",
+        "build:js": "vite build --config vite.config.js",
+        "build:scss": "sass src/scss/style.scss:style.css --no-source-map --style=compressed",
+        "build": "npm-run-all build:js build:scss"
+    },
+    "devDependencies": {
+        "vite": "^5.0.0",
+        "sass": "^1.69.0",
+        "npm-run-all": "^4.1.5"
+    }
+}
