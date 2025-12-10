@@ -1,11 +1,9 @@
 <?php
 /**
- * Mittnett Divi Child Theme
+ * Divi 5 Child Theme
  *
- * @package DiviFiveChild
- * @since   1.0.0
- * @author  Mittnett
- * @link    https://mittnett.no
+ * @package   DiviFiveChild
+ * @since     1.0.0
  */
 
 // Include functionality files.

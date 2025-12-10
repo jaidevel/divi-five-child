@@ -1,8 +1,9 @@
 <?php
 /**
- * Mittnett Divi Child Post Types
+ * Custom Post Types
  *
  * @package   DiviFiveChild
+ * @since     1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -4,7 +4,7 @@
  *
  * This file contains Divi related actions, filters, and overrides.
  *
- * @package   DiviNordian
+ * @package   DiviFiveChild
  * @since     1.0.0
  */
 
