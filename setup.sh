@@ -101,10 +101,10 @@ print_info "Step 4/8: Updating PHP @package tags..."
 find . -name "*.php" -type f -not -path "./vendor/*" -exec sed -i "s/@package.*DiviFiveChild/@package   $PACKAGE_NAME/" {} \;
 print_success "PHP @package tags updated"
 
-print_info "Step 5/8: Renaming workspace file..."
+print_info "Step 5/8: Copying workspace file..."
 if [ -f "divi-five-child.code-workspace" ]; then
-    mv "divi-five-child.code-workspace" "${THEME_SLUG}.code-workspace"
-    print_success "Workspace file renamed to ${THEME_SLUG}.code-workspace"
+    cp "divi-five-child.code-workspace" "${THEME_SLUG}.code-workspace"
+    print_success "Workspace file copied to ${THEME_SLUG}.code-workspace"
 else
     print_info "Workspace file not found, skipping..."
 fi
