@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"phpsab.standard": "./phpcs.xml",
+		"phpsab.snifferMode": "onSave", // Set sniffer mode to onSave
+		"editor.formatOnSave": true,
+		"[php]": {
+			"editor.defaultFormatter": "valeryanm.vscode-phpsab"
+		}
+	}
+}
