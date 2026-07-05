@@ -17,12 +17,13 @@ A bare-bones, modern starter child theme for Divi 5, built for rapid development
 ### Prerequisites
 - Node.js (v18+ recommended)
 - npm
+- rsync (required when copying to a target folder)
 - WordPress with Divi 5 installed
 - (Optional, for PHP code style) Composer with [WordPress Coding Standards](https://github.com/WordPress/WordPress-Coding-Standards)
 
 ### Quick Setup (Automated)
 
-For new projects, use the automated setup script:
+For new projects, use the interactive setup script from the starter theme directory:
 
 1. **Clone the repository**
    ```bash
@@ -32,17 +33,59 @@ For new projects, use the automated setup script:
 
 2. **Run the setup script**
    ```bash
-   ./setup.sh client-name
+   ./setup.sh
    ```
-   Replace `client-name` with your client's name (e.g., `acme-corp`). This will:
-   - Rename the theme folder to `divi-client-name`
-   - Update theme information in all files
-   - Update package name to `divi-client-name`
-   - Rename workspace file
-   - Install npm and composer dependencies
-   - Prepare the theme for development
 
-3. **Initialize git (optional)**
+   The script walks you through three steps:
+
+   **Step 1 — Client name**  
+   Enter the client name (e.g. `Helhetshelse` or `Acme Corp`). The script normalises it to kebab-case (`helhetshelse`, `acme-corp`).
+
+   **Step 2 — Theme slug**  
+   Press Enter to accept the suggested slug (`divi-{client-name}`), or type a custom slug.
+
+   **Step 3 — Theme folder**  
+   Choose where the new theme should live:
+
+   - **Option 1 — Current folder (`./`)**  
+     Sets up the theme in place. The starter folder is renamed to the theme slug. Use this if you cloned the starter directly into the project location.
+
+   - **Option 2 — Target folder** *(recommended for new projects)*  
+     Copies the starter to a separate location and leaves the starter repo untouched for reuse.  
+     Default path:
+     ```text
+     ~/Development/Projects/{client-name}/www/{theme-slug}
+     ```
+     Example: `~/Development/Projects/helhetshelse/www/divi-helhetshelse`  
+     Press Enter to accept the suggestion, or type any custom path. Missing directories are created automatically.
+
+   After you confirm the summary, the script will:
+
+   - Update theme metadata in `style.css`, `src/scss/style.scss`, and `package.json`
+   - Update PHP `@package` tags across all theme files
+   - Rename `divi-five-child.code-workspace` to `{theme-slug}.code-workspace`
+   - Install npm and Composer dependencies
+
+   When copying to a target folder, these paths are **excluded** so the starter stays clean:
+
+   - `.git/`
+   - `vendor/`
+   - `.vscode/`
+   - `.cursor/`
+   - `setup.sh`
+   - Lock files (`package-lock.json`, `composer.lock`, etc.)
+
+3. **Initialize git**
+   ```bash
+   # If you used option 2 (target folder), cd into the new theme first:
+   cd ~/Development/Projects/client-name/www/divi-client-name
+
+   git init
+   git add .
+   git commit -m "Initial commit for Divi Client Name theme"
+   ```
+
+   If you used option 1 (current folder) and want a fresh git history:
    ```bash
    rm -rf .git
    git init
